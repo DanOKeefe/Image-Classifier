@@ -32,5 +32,3 @@ def app():
         results = imagenet_utils.decode_predictions(y_pred)
         image_caption = f'Prediction: {results[0][0][1]}'
         st.image(img, caption=image_caption)
-    
-    
