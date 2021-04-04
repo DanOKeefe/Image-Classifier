@@ -18,10 +18,10 @@ def process_image(img):
     return preprocess_input(img_arr)
 
 def app():
-    model = load_model()
     st.markdown(
         f"<h1 style='text-align: center;'>Image Classifier</h1>", 
         unsafe_allow_html=True)
+    model = load_model()
     uploaded_file = st.file_uploader('Choose a file')
     
     if uploaded_file is not None:
@@ -32,3 +32,4 @@ def app():
         results = imagenet_utils.decode_predictions(y_pred)
         image_caption = f'Prediction: {results[0][0][1]}'
         st.image(img, caption=image_caption)
+        st.markdown('Try a sloth image! Or one of these [999 other classes](https://github.com/DanOKeefe/Image-Classifier/blob/main/imagenet_classes.txt)')
