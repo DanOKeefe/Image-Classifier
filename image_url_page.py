@@ -21,10 +21,10 @@ def load_model():
     return model
 
 def app():
-    model = load_model()
     st.markdown(
         f"<h1 style='text-align: center;'>Image Classifier</h1>", 
         unsafe_allow_html=True)
+    model = load_model()
     img_url = st.text_input(
         label='Enter Image URL',
         value='https://upload.wikimedia.org/wikipedia/commons/e/eb/JenB_Marking_Territory.JPG')
@@ -34,3 +34,4 @@ def app():
     results = imagenet_utils.decode_predictions(y_pred)
     image_caption = f'Prediction: {results[0][0][1]}'
     st.image(img, caption=image_caption)
+    st.markdown('Try a sloth image! Or one of these [999 other classes](https://github.com/DanOKeefe/Image-Classifier/blob/main/imagenet_classes.txt)')
